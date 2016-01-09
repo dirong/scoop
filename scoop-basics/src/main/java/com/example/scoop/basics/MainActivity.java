@@ -9,10 +9,13 @@ import butterknife.ButterKnife;
 import com.example.scoop.basics.scoop.AppRouter;
 import com.example.scoop.basics.scoop.DaggerInjector;
 import com.example.scoop.basics.ui.DemosController;
+import com.example.scoop.basics.ui.navigationdrawer.ScreensRouter;
 import com.lyft.scoop.Scoop;
 import com.lyft.scoop.UiContainer;
 import dagger.ObjectGraph;
 import javax.inject.Inject;
+
+import rx.Observable;
 import rx.subscriptions.CompositeSubscription;
 import timber.log.Timber;
 
@@ -23,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     AppRouter appRouter;
+
+    @Inject
+    ScreensRouter screensRouter;
 
     private CompositeSubscription subscriptions = new CompositeSubscription();
     private LayoutInflater inflater;
@@ -47,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     @Override
@@ -83,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
         if (mainUiContainer.onBack()) {
             return;
         }
+//
+        if (screensRouter.goBack()) {
+            return;
+        }
 
         if (appRouter.goBack()) {
             return;
@@ -91,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    private Scoop getRootScoop() {
+    public Scoop getRootScoop() {
         if (rootScoop == null) {
             ObjectGraph activityGraph = getApp().getApplicationGraph().plus(new MainActivityModule(this));
 
@@ -108,4 +117,6 @@ public class MainActivity extends AppCompatActivity {
     private App getApp() {
         return (App) getApplicationContext();
     }
+
+
 }

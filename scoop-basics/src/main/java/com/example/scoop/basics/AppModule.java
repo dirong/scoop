@@ -3,6 +3,8 @@ package com.example.scoop.basics;
 import android.app.Application;
 import com.example.scoop.basics.scoop.AppRouter;
 import com.example.scoop.basics.scoop.DaggerScreenScooper;
+import com.example.scoop.basics.ui.navigationdrawer.ScreensRouter;
+
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -33,6 +35,12 @@ public class AppModule {
     @Provides
     Application provideApplication() {
         return app;
+    }
+
+    @Singleton
+    @Provides
+    ScreensRouter proScreensRouter() {
+        return new ScreensRouter(new DaggerScreenScooper());
     }
 
 }

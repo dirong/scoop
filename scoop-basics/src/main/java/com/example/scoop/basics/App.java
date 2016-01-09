@@ -4,6 +4,8 @@ import android.support.multidex.MultiDexApplication;
 import com.example.scoop.basics.scoop.ButterKnifeViewBinder;
 import com.facebook.stetho.Stetho;
 import com.lyft.scoop.Scoop;
+import com.lyft.scoop.Screen;
+
 import dagger.ObjectGraph;
 import timber.log.Timber;
 

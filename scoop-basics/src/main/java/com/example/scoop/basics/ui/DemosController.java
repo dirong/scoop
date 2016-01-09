@@ -1,6 +1,5 @@
 package com.example.scoop.basics.ui;
 
-import android.transition.Fade;
 import android.view.View;
 import butterknife.OnClick;
 import com.example.scoop.basics.MainActivityModule;
@@ -9,6 +8,7 @@ import com.example.scoop.basics.rx.ViewSubscriptions;
 import com.example.scoop.basics.scoop.AppRouter;
 import com.example.scoop.basics.scoop.ControllerModule;
 import com.example.scoop.basics.ui.customtransition.AutoTransitionStartController;
+import com.example.scoop.basics.ui.navigationdrawer.DrawerController;
 import com.example.scoop.basics.ui.navigationsample.AController;
 import com.example.scoop.basics.ui.paramsample.ParametrizedController;
 import com.example.scoop.basics.ui.standardtransitions.FadeController;
@@ -80,5 +80,10 @@ public class DemosController extends ViewController {
     @OnClick(R.id.wizard_sample_button)
     public void goToWizardSample() {
         appRouter.goTo(EnterFirstNameController.createScreen());
+    }
+
+    @OnClick(R.id.drawer_sample_button)
+    public void goToDrawerSample() {
+        appRouter.goTo(DrawerController.createScreen());
     }
 }

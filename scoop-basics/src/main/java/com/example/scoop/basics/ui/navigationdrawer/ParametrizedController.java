@@ -1,11 +1,10 @@
-package com.example.scoop.basics.ui.paramsample;
+package com.example.scoop.basics.ui.navigationdrawer;
 
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.scoop.basics.R;
 import com.example.scoop.basics.scoop.ControllerModule;
-import com.example.scoop.basics.ui.DemosController;
 import com.lyft.scoop.EnterTransition;
 import com.lyft.scoop.ExitTransition;
 import com.lyft.scoop.Screen;
@@ -28,7 +27,7 @@ public class ParametrizedController extends ViewController {
 
     @dagger.Module(
             injects = ParametrizedController.class,
-            addsTo = DemosController.Module.class,
+            addsTo = DrawerController.Module.class,
             library = true
     )
     public static class Module {

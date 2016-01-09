@@ -40,4 +40,11 @@
         android:text="Wizard sample"
         />
 
+    <Button
+        android:id="@+id/drawer_sample_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/span80"
+        android:text="Navigation drawer sample"
+        />
+
 </LinearLayout>

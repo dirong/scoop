@@ -32,6 +32,7 @@ public class FadeTransition extends ObjectAnimatorTransition {
 
     @Override
     public void performTranslate(final ViewGroup root, final View from, View to, final TransitionListener transitionListener) {
+        if(from == null || to == null) return;
         Animator animator = createAnimator(from, to);
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
